@@ -1,0 +1,134 @@
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/trackingprocess.css" />
+  </head>
+
+  <body>
+      <!-- <div class="text-right">
+       
+       <h2><%#= startTime  %> </h2>
+        <h2><%#= endTime  %> </h2>
+     </div>  -->
+    
+    <div class="container px-1 px-md-4 py-5 mx-auto">
+        <img src="./img/logo.png" alt="logo" width="120" height="120">
+        <h2 class="text-right" id="countDown" data-time="<%= endTime  %>">------------------------</h2>
+      <div class="card card1">
+          
+        <div class="row d-flex justify-content-between px-3 top top1">
+            
+          <div class="d-flex">
+            <h5>
+              ORDER ID
+              <span class="text-primary font-weight-bold"
+                >#<%= status.order_id %>
+              </span>
+            </h5>
+          </div>
+          <div class="d-flex flex-column text-sm-right">
+            <p class="mb-0">Expected Arrival <span>(<%=endTime  %>) </span></p>
+            <p>
+              USPS <span class="font-weight-bold">234094567242423422898</span>
+            </p>
+          </div>
+        </div>
+        <!-- Add class 'active' to progress -->
+        <div class="row d-flex justify-content-center">
+          <div class="col-12">
+            <ul id="progressbar" class="text-center">
+              <%if(status.status=="Pending" ) { %>
+              <!-- active /step0 -->
+              <li id="li1" class="active step0"></li>
+              <li id="li2" class="step0"></li>
+              <li id="li3" class="step0"></li>
+              <li id="li4" class="step0"></li>
+
+              <% } else if(status.status=="Processing" ) { %>
+              <li id="li1" class="active step0"></li>
+              <li id="li2" class="active step0"></li>
+              <li id="li3" class="step0"></li>
+              <li id="li4" class="step0"></li>
+
+              <% } else if(status.status=="Out for Deliver" ) { %>
+              <li id="li1" class="active step0"></li>
+              <li id="li2" class="active step0"></li>
+              <li id="li3" class="active step0"></li>
+              <li id="li4" class="step0"></li>
+
+              <% } else if(status.status=="Deliverd" ) { %>
+              <li id="li1" class="active step0"></li>
+              <li id="li2" class="active step0"></li>
+              <li id="li3" class="active step0"></li>
+              <li id="li4" data-deliver="true" class="active step0"></li>
+
+              <% } %>
+            </ul>
+          </div>
+        </div>
+        <div class="row justify-content-between top top1">
+          <div class="row d-flex icon-content">
+            <img class="icon" src="https://i.imgur.com/9nnc9Et.png" />
+            <div class="d-flex flex-column">
+              <p class="font-weight-bold">Order<br />Pending</p>
+            </div>
+          </div>
+          <div class="row d-flex icon-content">
+            <img class="icon" src="https://i.imgur.com/u1AzR7w.png" />
+            <div class="d-flex flex-column">
+              <p class="font-weight-bold">Order<br />Processing</p>
+            </div>
+          </div>
+          <div class="row d-flex icon-content">
+            <img class="icon" src="https://i.imgur.com/TkPm63y.png" />
+            <div class="d-flex flex-column">
+              <p class="font-weight-bold">Order<br />Out for Deliver</p>
+            </div>
+          </div>
+          <div class="row d-flex icon-content">
+            <img class="icon" src="https://i.imgur.com/HdsziHP.png" />
+            <div class="d-flex flex-column">
+              <p class="font-weight-bold">Order<br />Deliverd</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto text-center">
+      <div class="btn btn-primary" id="logoutBtn">Logout</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+       
+
+        
+      document.getElementById("logoutBtn").addEventListener("click", () => {
+        window.location.href = `/userlogout`;
+      });
+      setInterval(function () {
+        window.location.href = `/orderstatus`;
+      }, 3000);
+    </script>
+    <script src="./js/countdown.js"></script>
+  </body>
+</html>

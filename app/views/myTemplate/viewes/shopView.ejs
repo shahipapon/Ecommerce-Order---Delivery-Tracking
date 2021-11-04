@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<%- include('./partials/head'); %>
+</head>
+
+<body>
+
+	<!-- header -->
+	<header>
+		<%- include('./partials/header'); %>
+	</header>
+
+	<!-- navbar -->
+	<nav>
+		<%- include('./partials/navbar'); %>
+
+	</nav>
+
+	<!-- sidebar -->
+	<section>
+		<%- include('./partials/sectionSide'); %>
+	</section>
+
+	<!-- pagees content -->
+	<section>
+		<div class="container">
+
+			<header class="section-heading">
+				<!-- <a href="#" class="btn btn-outline-primary float-right">See all</a> -->
+				<h2 class="section-title text-center m-4 ">Popular Shops In You Area</h2>
+			</header><!-- sect-heading -->
+
+			<div class="row ">
+
+				<%if(shop.length>0 ) { %>
+					<% shop.forEach(element=> { %>
+
+						<div class=" col-3 mb-4 zoom">
+							<a href="/product?shop=<%=element.shopid%>">
+								<img class=" w-100" src="./img/shops/<%=element.shop.toLowerCase()%>.jpg"> </a>
+						</div>
+
+						<% }) %>
+
+							<% } else { %>
+
+								<h1>Sorry No Shop in your area !!!</h1>
+
+								<% } %>
+
+
+
+			</div>
+		</div>
+
+	</section>
+
+
+	<!-- pagees content -->
+
+
+
+
+	<!-- ========================= SECTION  ========================= -->
+	<section class=" section-name padding-y bg">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-6 ">
+					<!-- <h3>Footer</h3>
+					<p>....</p> -->
+				</div>
+	</section>
+	<!-- ========================= SECTION  END// ======================= -->
+
+	<footer>
+		<%#- include('./partials/footer'); %>
+	</footer>
+
+
+</body>
+
+</html>

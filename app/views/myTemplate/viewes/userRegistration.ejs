@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./css/userregis.css">
+    </head>
+    <body>
+    
+    <form method="post">
+      <div class="container">
+        <h1>Guest Checkout Form</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+    
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter your name" name="name" required>
+    
+        <label for="phone"><b>Phone</b></label>
+        <input type="text" placeholder="Enter Your Phone Number" name="phone" required>
+    
+        <label for="Address"><b>Address</b></label>
+        <input type="text" placeholder="Enter Your Address" name="address" required>
+    
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="pass"  required>
+
+        <!-- vilni strat -->
+
+        
+        <input type="hidden" id="uuiid"  name="uuiid" value="" >
+        <input type="hidden" id="product"  name="product" value="" >
+        <input type="hidden" id="shopid" name="shopid" value="" >
+        <input type="hidden" id="orderTime" name="orderTime" value="" >
+        
+    
+        <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required> -->
+        <hr>
+    
+        <button type="submit" id="checkout" class="registerbtn">Proceed</button>
+      </div>
+      
+      <!-- <div class="container signin">
+        <p>Already have an account? <a href="#">Sign in</a>.</p>
+      </div> -->
+    </form>
+    
+    <script src="./js/userRegisAndcheckout.js"></script>
+    <script src="./js/setOrderTime.js"></script>
+    
+</body>
+</html>

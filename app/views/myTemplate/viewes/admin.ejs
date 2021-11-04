@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+
+    <style>
+      body {
+        background: rgb(235, 235, 236);
+      }
+    </style>
+  </head>
+
+  
+  <body>
+    <div class="container" style="margin-top: 40px !important">
+      <div class="row">
+        <img src="./img/logo.png" alt="logo" width="120" height="120" />
+        <a href="/allproducts">
+          <button class="btn btn-info " style="margin-left:600px; height: 100px; width: 120px; font-size: 23px; ">Products</button>
+        </a>
+        <div class="col-6">
+          <h2>Oredr Status</h2>
+          <%if(info.length>0 ) { %>
+          <!-- empty cart -->
+          <!-- <h2>something..</h2> -->
+          <% (info).forEach(element=> { %>
+
+
+          <div class="container mx-auto" style="margin-top: 20px !important">
+            <form method="POST">
+              <button
+                type="button"
+                class="btn btn-info mr-2"
+                data-toggle="collapse"
+                data-target="#<%= element.order_id  %>"
+              >
+                #Order ID ( <%= element.order_id %> )
+              </button>
+              <b>(<span class="text-info"> <%= JSON.parse(element.order_time).startTime  %>  </span>)</b>
+              <b
+                >(Current Status:-
+                <span class="text-primary"> <%= element.status %></span> )</b
+              >
+
+              <select name="status" id="myselect" onchange="this.form.submit()">
+                <option value="Pending">Pending</option>
+                <option value="Processing">Processing</option>
+                <option value="Out for Deliver">Out for Deliver</option>
+                <option value="Deliverd">Deliverd</option>
+              </select>
+              <div id="<%= element.order_id  %>" class="collapse">
+                <h2 style="color: blue">
+                  ( phone: <%=element.user_phone  %>, delivery location: <%=element.address  %> )
+                </h2>
+                <ul>
+                  <% JSON.parse(element.product).prod.forEach(element=> { %>
+
+                  <h3>
+                    <li><%=element.Product %></li>
+                  </h3>
+
+                  <% }) %>
+                </ul>
+              </div>
+              <input
+                type="hidden"
+                id="orderid"
+                name="orderid"
+                value="<%= element.order_id  %>"
+              />
+            </form>
+          </div>
+          
+          
+
+          <% }) %> <% } else { %>
+          <h2>You have No Order Left....</h2>
+          <% } %>
+        </div>
+       
+          
+        </div>
+      </div>
+      
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

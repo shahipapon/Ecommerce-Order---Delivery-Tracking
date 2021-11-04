@@ -1,0 +1,16 @@
+plan
+View product --ok
+*cart --pendoing --failed
+
+
+*authorised vendor login form --pending
+*product upload form -pending
+
+admin:
+*varify vendor
+view order details
+
+*monitor delivery status(pending order, processing, delivered) --man
+
+
+cate..

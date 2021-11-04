@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<!-- toastr css -->
+	
+	<%- include('./partials/head'); %>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+</head>
+
+<body>
+
+	<!-- header -->
+	<header>
+		<%- include('./partials/header'); %>
+	</header>
+
+	<!-- navbar -->
+	<nav>
+		<%- include('./partials/navbar'); %>
+
+	</nav>
+
+	<!-- sidebar -->
+	<section>
+		<%- include('./partials/sectionSide'); %>
+	</section>
+
+	<!-- pagees content -->
+	<section>
+		<!-- ========================= SECTION  ========================= -->
+		<section class="section-name padding-y-sm">
+			<div class="container">
+
+				<header class="section-heading">
+					<!-- <a href="#" class="btn btn-outline-primary float-right">See all</a> -->
+					<h3 class="section-title">Popular products</h3>
+				</header><!-- sect-heading -->
+
+
+				<div class="row">
+
+					<%if(products.length>0 ) { %>
+						<% products.forEach(element=> { %>
+
+							<div class="col-md-3">
+								<div href="#" class="card card-product-grid">
+									<a href="#" class="img-wrap zoom"> <img src="./img/product.png"> </a>
+									<figcaption class="info-wrap">
+										<h1 class="text-center text-primary tada">
+											<%=element.product_name%>
+										</h1>
+										<button data-productname=<%=element.product_name%>
+											data-productid= <%=element.product_id%>
+												data-shopid = <%=element.shop_id%>
+													data-price = <%=element.price%>
+														class="btn adtocart" type="button" > Add to cart</button>
+
+										<div class="price mt-1">$
+											<%=element.price%>
+										</div> <!-- price-wrap.// -->
+									</figcaption>
+								</div>
+							</div> <!-- col.// -->
+
+							<% }) %>
+
+								<% } else { %>
+
+									<h1>Sorry Nothing found !!!</h1>
+
+									<% } %>
+
+
+
+				</div> <!-- row.// -->
+
+			</div><!-- container // -->
+			<!-- <button id="check"> check data</button> -->
+		</section>
+		<!-- ========================= SECTION  END// ========================= -->
+	</section>
+
+	<!-- ========================= SECTION  ========================= -->
+	<section class="section-name padding-y bg">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-6 ">
+					<!-- <h3>Footer</h3>
+					<p>....</p> -->
+				</div>
+	</section>
+	<!-- ========================= SECTION  END// ======================= -->
+
+	<footer>
+		<%#- include('./partials/footer'); %>
+	</footer>
+
+
+
+	
+	<!-- axios cdn -->
+	<script type="" src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<!-- main js  -->
+	<!-- <script type="module" src="./js/productsToCart.js"></script> -->
+
+	<!-- main js browserify -->
+	<script type="module" src="./js/productsToCartBundle.js"></script>
+
+	<!-- toastr -->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head'); %>
+
+        <link rel="stylesheet" href="./css/cart.css">
+</head>
+
+<body>
+
+    <!-- header -->
+    <header>
+        <%- include('./partials/header'); %>
+    </header>
+
+    <!-- navbar -->
+    <nav>
+        <%- include('./partials/navbar'); %>
+
+    </nav>
+
+
+
+    <!-- pagees content -->
+    <section>
+
+        <div>
+            <%if(CartEmpty ) { %>
+                 <!-- empty cart -->                
+                <%- include('./partials/cart/cart_empty'); %>
+            
+            <% } else { %>
+                <%- include('./partials/cart/cart'); %>
+            <% } %>
+       
+               
+        </div>
+
+       
+
+
+
+    </section>
+
+    <!-- ========================= SECTION  ========================= -->
+    <section class="section-name padding-y bg">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-6 ">
+                    <!-- <h3>Footer</h3>
+                    <p>....</p> -->
+                </div>
+    </section>
+    <!-- ========================= SECTION  END// ======================= -->
+
+    <footer>
+        <%#- include('./partials/footer'); %>
+    </footer>
+
+
+
+
+</body>
+
+</html>
